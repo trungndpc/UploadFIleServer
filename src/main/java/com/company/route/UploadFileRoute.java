@@ -45,6 +45,12 @@ public class UploadFileRoute {
     HttpOriginRange httpOriginRange3 = HttpOriginRange.create(validOriginHeader3);
     AccessControlAllowOrigin accessControlAllowOrigin3 = AccessControlAllowOrigin.create(httpOriginRange3);
 
+
+    final HttpOrigin validOriginHeader4 = HttpOrigin.parse("https://dev-admin-nhathau.insee.udev.com.vn");
+    HttpOriginRange httpOriginRange4 = HttpOriginRange.create(validOriginHeader4);
+    AccessControlAllowOrigin accessControlAllowOrigin4 = AccessControlAllowOrigin.create(httpOriginRange4);
+
+
     AccessControlAllowMethods accessControlAllowMethods = AccessControlAllowMethods.create(HttpMethods.GET, HttpMethods.POST);
 
     public Route route() {
@@ -63,13 +69,15 @@ public class UploadFileRoute {
                         cors.add(accessControlAllowOrigin2);
                     }
 
+                    if (value.startsWith("https://dev-admin-nhathau.insee.udev.com.vn")) {
+                        cors.add(accessControlAllowOrigin4);
+                    }
+
                     if (value.contains("localhost")) {
                         cors.add(accessControlAllowOrigin);
                     }
                     cors.add(accessControlAllowMethods);
                 }
-                System.out.println("===========");
-                System.out.println(referer.get().value());
                 HttpResponse httpResponse = new HttpResponse();
                 httpResponse.setData(response.link);
                 httpResponse.setError(response.status.intValue());
