@@ -1,5 +1,7 @@
 package com.company.model;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.awt.*;
 import java.io.File;
 import java.util.HashMap;
@@ -33,7 +35,7 @@ public class FontModel {
                 String fileName = FilenameUtils.getBaseName(file.getName());
                 FONT_MAP.put(fileName, font);
             } catch (Exception e) {
-                LOGGER.error(e);
+                e.printStackTrace();
             }
         }
 
@@ -44,7 +46,7 @@ public class FontModel {
                 String fileName = FilenameUtils.getBaseName(file.getName());
                 FALLBACK_FONT_MAP.put(fileName, font);
             } catch (Exception ex) {
-                LOGGER.error(ex);
+                ex.printStackTrace();
             }
         }
         FALLBACK_FONT_MAP.put("System", Font.decode(""));

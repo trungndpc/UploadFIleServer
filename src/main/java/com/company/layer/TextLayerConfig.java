@@ -4,6 +4,9 @@ import com.company.common.TextAlign;
 import com.company.layer.text.DrawLineInfo;
 import com.company.layer.text.EmojiInfo;
 import com.company.layer.text.TextPhraseInfo;
+import com.company.model.EmojiModel;
+import com.company.model.FontModel;
+import com.vdurmont.emoji.EmojiParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -14,6 +17,7 @@ import java.text.AttributedString;
 import java.util.*;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class TextLayerConfig extends LayerConfig{
     private static final Pattern LINE_END = Pattern.compile("\\n");
@@ -212,7 +216,6 @@ public class TextLayerConfig extends LayerConfig{
             }
             return drawLineInfoList;
         } finally {
-            Profiler.getThreadProfiler().pop(this.getClass(), "buildDrawLines_" + layerId);
         }
     }
 
@@ -372,18 +375,13 @@ public class TextLayerConfig extends LayerConfig{
     }
 
     private Map<String, FontMetrics> getFontMetrics(Map<String, Font> fontMap) {
-        Profiler.getThreadProfiler().push(this.getClass(), "getFontMetrics");
-        try {
-            Map<String, FontMetrics> fontMetricsMap = new HashMap<>(fontMap.size());
-            Canvas canvas = new Canvas();
-            for (Map.Entry<String, Font> entry : fontMap.entrySet()) {
-                fontMetricsMap.put(entry.getKey(), canvas.getFontMetrics(entry.getValue().deriveFont(this.fontSize * 1.0f)));
-            }
-            fontMetricsMap.put(this.font.getFontName(), canvas.getFontMetrics(this.font));
-            return fontMetricsMap;
-        } finally {
-            Profiler.getThreadProfiler().pop(this.getClass(), "getFontMetrics");
+        Map<String, FontMetrics> fontMetricsMap = new HashMap<>(fontMap.size());
+        Canvas canvas = new Canvas();
+        for (Map.Entry<String, Font> entry : fontMap.entrySet()) {
+            fontMetricsMap.put(entry.getKey(), canvas.getFontMetrics(entry.getValue().deriveFont(this.fontSize * 1.0f)));
         }
+        fontMetricsMap.put(this.font.getFontName(), canvas.getFontMetrics(this.font));
+        return fontMetricsMap;
     }
 
     private void drawEmoji(Collection<EmojiInfo> emojiInfoList, Graphics graphics, int lineLeft, int lineBase) {
