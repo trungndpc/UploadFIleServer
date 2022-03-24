@@ -1,0 +1,59 @@
+{
+    "eventId": "birthday2022",
+    "config": {
+        "width": 960,
+        "height": 960,
+        "borderRadius": 80
+    },
+    "layers": [
+        {
+            "layerId": 1,
+            "type": "BACKGROUND",
+            "sourceUrl": "https://res-zalo.zadn.vn/upload/media/2021/12/13/A_1639388000675_207156.png",
+            "width": 960,
+            "height": 960,
+            "top": 0,
+            "left": 0
+        },
+        {
+            "layerId": 2,
+            "type": "TEXT",
+            "content": "Chúc mừng sinh nhật bạn tôi. Tuổi mới đến với thật nhiều năng lượng! Hi vọng ngày hôm nay và 364 ngày tiếp theo bạn sẽ luôn rạng rỡ và có nhiều niềm vuôi nhoé!!",
+            "font": "Rosario-Regular",
+            "align": "left",
+            "alignVertical": "center",
+            "color": "#685D22",
+            "fontSize": 43,
+            "lineHeight": 52,
+            "width": 714,
+            "height": 262,
+            "top": 222,
+            "left": 123
+        },
+        {
+            "layerId": 3,
+            "type": "TEXT",
+            "content": "Lê Văn Thiện",
+            "font": "Rosario-Regular",
+            "align": "left",
+            "color": "#685D22",
+            "fontSize": 34,
+            "lineHeight": 48,
+            "width": 492,
+            "height": 65,
+            "top": 115,
+            "left": 280
+        },
+        {
+            "layerId": 4,
+            "type": "IMAGE",
+            "sourceUrl": "http://s160.avatar.talk.zdn.vn/default",
+            "width": 74,
+            "height": 74,
+            "top": 111,
+            "left": 188,
+            "borderRadius": 200
+        }
+    ],
+    "styleId": 0
+}
