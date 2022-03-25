@@ -1,7 +1,6 @@
 package com.company.registry;
 
 import akka.actor.typed.ActorRef;
-import akka.actor.typed.ActorSystem;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
@@ -17,7 +16,6 @@ import com.company.util.CommonUtil;
 import com.company.util.FileUtil;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
@@ -25,7 +23,6 @@ import java.util.Optional;
 
 public class UploadFileRegistry extends AbstractBehavior<UploadFileRegistry.Request> {
     private static final String NAME_FIELD = "file";
-    private int c = 0;
     public UploadFileRegistry(ActorContext<Request> context) {
         super(context);
     }

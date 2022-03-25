@@ -30,19 +30,18 @@ public class BackgroundLayerConfig extends LayerConfig{
 
     @Override
     public void applyLayerConfig(Graphics2D graphics)  throws Exception{
-            if (this.sourceUrl != null) {
-                Image imageFromLocalCache = ImageService.INSTANCE.getImageFromLocalCache(this.sourceUrl);
-                graphics.drawImage(imageFromLocalCache, this.left, this.top, this.width, this.height, null);
+        if (this.sourceUrl != null) {
+            Image imageFromLocalCache = ImageService.INSTANCE.getImageFromLocalCache(this.sourceUrl);
+            graphics.drawImage(imageFromLocalCache, this.left, this.top, this.width, this.height, null);
+        }
+        if (this.color != null) {
+            Color grba = grba(this.color);
+            if (grba == null) {
+                throw new Exception("Color must be RGBA");
             }
-            if (this.color != null) {
-                Color grba = grba(this.color);
-                if (grba == null) {
-                    throw new Exception("Color must be RGBA");
-                }
-                graphics.setColor(grba);
-                graphics.fillRect(0, 0, width, height);
-            }
-
+            graphics.setColor(grba);
+            graphics.fillRect(0, 0, width, height);
+        }
     }
 
     private Color grba(String color) throws Exception {

@@ -31,16 +31,16 @@ public class ConfigParser {
     }
 
     private LayerConfig parseLayerConfig(JSONObject layerConfig, JSONArray layersData) throws Exception {
-            LayerType type = LayerType.valueOf(layerConfig.getString("type").toUpperCase());
-            switch (type) {
-                case IMAGE:
-                    return ImgLayerConfig.fromJson(layerConfig, layersData);
-                case TEXT:
-                    return TextLayerConfig.fromJson(layerConfig, layersData);
-                case BACKGROUND:
-                    return BackgroundLayerConfig.fromJson(layerConfig);
-                default:
-                    throw new IllegalArgumentException();
-            }
+        LayerType type = LayerType.valueOf(layerConfig.getString("type").toUpperCase());
+        switch (type) {
+            case IMAGE:
+                return ImgLayerConfig.fromJson(layerConfig, layersData);
+            case TEXT:
+                return TextLayerConfig.fromJson(layerConfig, layersData);
+            case BACKGROUND:
+                return BackgroundLayerConfig.fromJson(layerConfig);
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 }
