@@ -150,8 +150,6 @@ public class TextLayerConfig extends LayerConfig{
                                 step = 1;
                             }
                         }
-                        //kiểm tra thử độ dài có vượt quá width layout chưa
-                        System.out.println(new String( Character.toChars(codePoint)) + " | " + "curWidth + charWidth: " + (curWidth + charWidth) + " | " + this.width);
                         if (curWidth + charWidth <= this.width) {
                             curWidth += charWidth;
                         } else {
@@ -170,7 +168,6 @@ public class TextLayerConfig extends LayerConfig{
                                 endWith3Dots = true;
                             }
 
-//                            System.out.println("line | start: " + start + ", end: " + end);
                             DrawLineInfo drawLineInfo = buildDrawLine(Arrays.copyOfRange(codePoints, start, end),
                                     Arrays.copyOfRange(fontAlc, start, end), fbFonts, markWidth, endWith3Dots, emojiMap, metricsMap);
                             infoList.add(drawLineInfo);

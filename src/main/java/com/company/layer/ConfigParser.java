@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfigParser {
+    public static final ConfigParser INSTANCE = new ConfigParser();
+
     public JSONObject getConfig(JSONObject jsonData) throws Exception{
         int styleId = jsonData.getInt("styleId");
         String eventId = jsonData.getString("eventId");

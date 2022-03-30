@@ -1,5 +1,5 @@
 {
-    "eventId": "birthday2022",
+    "eventId": "phenman2022",
     "config": {
         "width": 960,
         "height": 960,
@@ -43,16 +43,6 @@
             "height": 65,
             "top": 115,
             "left": 280
-        },
-        {
-            "layerId": 4,
-            "type": "IMAGE",
-            "sourceUrl": "http://s160.avatar.talk.zdn.vn/default",
-            "width": 74,
-            "height": 74,
-            "top": 111,
-            "left": 188,
-            "borderRadius": 200
         }
     ],
     "styleId": 0
