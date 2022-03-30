@@ -7,4 +7,5 @@ public class FileUtil {
         String prefix = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
         return prefix + "-" + originalName;
     }
+
 }
