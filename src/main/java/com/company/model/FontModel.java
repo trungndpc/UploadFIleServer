@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 public class FontModel {
     public static final Pattern COMMA = Pattern.compile(",");
 
-    private static final String FONT_FOLDER = "data/fonts";
-    private static final String FALL_BACK_FONT_FOLDER = "data/fallback-fonts";
+    private static final String FONT_FOLDER = "public/data/fonts";
+    private static final String FALL_BACK_FONT_FOLDER = "public/data/fallback-fonts";
     private static final String[] FALL_BACK_FONT_PRIORITY = COMMA.split("System");
 
     private static final Map<String, Font> FONT_MAP = new HashMap<>();
@@ -25,7 +25,7 @@ public class FontModel {
 
     static {
         try {
-            File fontFolder = new ClassPathResource(FONT_FOLDER).getFile();
+            File fontFolder = new File(FONT_FOLDER);
             for (File file : Objects.requireNonNull(fontFolder.listFiles())) {
                 try {
                     Font font = Font.createFont(Font.TRUETYPE_FONT, file);
@@ -36,7 +36,7 @@ public class FontModel {
                 }
             }
 
-            File fallbackFontFolder = new ClassPathResource(FALL_BACK_FONT_FOLDER).getFile();
+            File fallbackFontFolder = new File(FALL_BACK_FONT_FOLDER);
             for (File file : Objects.requireNonNull(fallbackFontFolder.listFiles())) {
                 try {
                     Font font = Font.createFont(Font.TRUETYPE_FONT, file);

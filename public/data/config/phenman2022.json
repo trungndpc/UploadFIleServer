@@ -1,0 +1,43 @@
+{
+    "eventId": "phenman2022",
+    "config": {
+        "width": 1024,
+        "height": 768
+    },
+    "layers": [
+        {
+            "layerId": 1,
+            "type": "BACKGROUND",
+            "sourceUrl": "https://admin-nhathau.insee.udev.com.vn/static/upload/certificate_phen_man.png",
+            "width": 1024,
+            "height": 768,
+            "top": 0,
+            "left": 0
+        },
+        {
+            "layerId": 2,
+            "type": "TEXT",
+            "content": "Lê Văn Thiện",
+            "font": "MTD-William-Letter",
+            "align": "left",
+            "color": "#000000",
+            "fontSize": 100,
+            "lineHeight": 10,
+            "width": 520,
+            "height": 70,
+            "top": 360,
+            "left": 60
+        },
+        {
+            "layerId": 3,
+            "type": "IMAGE",
+            "sourceUrl": "https://s240-ava-talk.zadn.vn/f/f/a/9/10/240/87069ccaa43702ad56ec93fe5a75f24f.jpg",
+            "width": 225,
+            "height": 225,
+            "top": 180,
+            "left": 580,
+            "borderRadius": 225
+        }
+    ],
+    "styleId": 0
+}

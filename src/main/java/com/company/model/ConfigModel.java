@@ -2,8 +2,6 @@ package com.company.model;
 
 import org.json.JSONObject;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,12 +13,11 @@ public class ConfigModel {
     public static final ConfigModel INSTANCE = new ConfigModel();
     private static final String KEY_FORMAT = "%s-%d";
     private static final Map<String, JSONObject> CONFIG_MAP = new HashMap<>();
-    public static final String CONFIG_FOLDER = "data/config";
+    public static final String CONFIG_FOLDER = "./public/data/config";
 
     static {
         try{
-            Resource resource = new ClassPathResource(CONFIG_FOLDER);
-            File configFolder = resource.getFile();
+            File configFolder = new File(CONFIG_FOLDER);
             for (File file : Objects.requireNonNull(configFolder.listFiles())) {
                 try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                     String config = br.lines().collect(Collectors.joining());

@@ -88,10 +88,10 @@ public class TextLayerConfig extends LayerConfig{
     @Override
     public void applyLayerConfig(Graphics2D graphics) {
         if (this.isVisibility()) {
+            graphics.setColor(this.color);
             if (this.isDrawRect()) {
                 graphics.drawRect(this.left, this.top, this.width, this.height);
             }
-            graphics.setColor(this.color);
             String[] textLines = LINE_END.split(this.content.replaceAll("\ufe0f", ""));
             List<DrawLineInfo> drawLineInfoList = buildDrawLines(textLines);
             drawLines(graphics, drawLineInfoList);

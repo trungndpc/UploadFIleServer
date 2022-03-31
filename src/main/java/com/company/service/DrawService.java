@@ -71,7 +71,8 @@ public class DrawService {
     }
 
     public static void main(String[] args) throws Exception {
-        String jsonData = "{\"eventId\":\"phenman2022\",\"layers\":[{\"layerId\":1,\"type\":\"BACKGROUND\",\"sourceUrl\":\"https://res-zalo.zadn.vn/upload/media/2021/12/13/A_1639388000675_207156.png\"},{\"layerId\":2,\"type\":\"TEXT\",\"content\":\"Chúc mừng sinh nhật bạn tôi. Tuổi mới đến với thật nhiều năng lượng! Hi vọng ngày hôm nay và 364 ngày tiếp theo bạn sẽ luôn rạng rỡ và có nhiều niềm vuôi nhoé!!\"},{\"layerId\":3,\"type\":\"TEXT\",\"content\":\"Nguyễn Đình Trung\"}],\"styleId\":0}";
+        String jsonData = "{\"eventId\":\"phenman2022\",\"styleId\":0,\"layers\":[{\"layerId\":2,\"type\":\"TEXT\",\"content\":\"Nguyễn Đình Trung\"},{\"layerId\":3,\"type\":\"IMAGE\",\"sourceUrl\":\"https://s240-ava-talk.zadn.vn/f/f/a/9/10/240/87069ccaa43702ad56ec93fe5a75f24f.jpg\"}]}";
+        System.out.println(new JSONObject(jsonData));
         BufferedImage bufferedImage = INSTANCE.drawImg(jsonData);
 
         File file = new File("src/main/resources/data/images/test.png");
