@@ -1,7 +1,6 @@
 package com.company.model;
 
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.core.io.ClassPathResource;
 
 import java.awt.*;
 import java.io.File;
@@ -13,8 +12,8 @@ import java.util.regex.Pattern;
 public class FontModel {
     public static final Pattern COMMA = Pattern.compile(",");
 
-    private static final String FONT_FOLDER = "public/data/fonts";
-    private static final String FALL_BACK_FONT_FOLDER = "public/data/fallback-fonts";
+    private static final String FONT_FOLDER = "../public/data/fonts";
+    private static final String FALL_BACK_FONT_FOLDER = "../public/data/fallback-fonts";
     private static final String[] FALL_BACK_FONT_PRIORITY = COMMA.split("System");
 
     private static final Map<String, Font> FONT_MAP = new HashMap<>();

@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class EmojiModel {
     public static final EmojiModel INSTANCE = new EmojiModel();
-    private static final String EMOJI_FOLDER = "data/emojis";
+    private static final String EMOJI_FOLDER = "../public/data/emojis";
     private static final String PREFIX = "emoji_u";
     private static final String EXT = ".png";
 

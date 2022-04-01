@@ -13,7 +13,7 @@ public class ConfigModel {
     public static final ConfigModel INSTANCE = new ConfigModel();
     private static final String KEY_FORMAT = "%s-%d";
     private static final Map<String, JSONObject> CONFIG_MAP = new HashMap<>();
-    public static final String CONFIG_FOLDER = "./public/data/config";
+    public static final String CONFIG_FOLDER = "../public/data/config";
 
     static {
         try{

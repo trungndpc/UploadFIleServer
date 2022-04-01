@@ -43,8 +43,8 @@ public class DrawImageRegistry extends AbstractBehavior<DrawImageRegistry.Reques
             JSONObject jsonData = new JSONObject(strJsonData);
             String originalNameFile  = jsonData.optString("name", "default");
             String fileName = FileUtil.genFileName(originalNameFile);
-//            File file = new File(FOLDER + "/" + fileName + ".png");
-//            ImageIO.write(bufferedImage, "png", file);
+            File file = new File(FOLDER + "/" + fileName + ".png");
+            ImageIO.write(bufferedImage, "png", file);
             String link = drawRequest.domain + "/static/upload/" + fileName + ".png";
             drawRequest.replyTo.tell(new DrawResponse(link, StatusCodes.OK));
         }catch (Exception e) {
