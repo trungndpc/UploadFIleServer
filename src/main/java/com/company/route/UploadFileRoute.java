@@ -46,7 +46,7 @@ public class UploadFileRoute {
         return entity(Unmarshaller.entityToString(), body ->
                 onSuccess(askDrawRegistry(domain, body), response -> {
                     HttpResponse httpResponse = new HttpResponse();
-                    httpResponse.setData(response.link);
+                    httpResponse.setData(response.data);
                     httpResponse.setError(response.status.intValue());
                     return complete(StatusCodes.OK, CORS.accessControlHeader(context),
                             httpResponse, Jackson.<HttpResponse>marshaller());

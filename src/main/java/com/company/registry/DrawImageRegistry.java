@@ -46,7 +46,8 @@ public class DrawImageRegistry extends AbstractBehavior<DrawImageRegistry.Reques
             File file = new File(FOLDER + "/" + fileName + ".png");
             ImageIO.write(bufferedImage, "png", file);
             String link = drawRequest.domain + "/static/upload/" + fileName + ".png";
-            drawRequest.replyTo.tell(new DrawResponse(link, StatusCodes.OK));
+            DrawResponse.Data data = new DrawResponse.Data(link, fileName);
+            drawRequest.replyTo.tell(new DrawResponse(data, StatusCodes.OK));
         }catch (Exception e) {
             e.printStackTrace();
             drawRequest.replyTo.tell(new DrawResponse(null, StatusCodes.EXPECTATION_FAILED));
@@ -73,12 +74,22 @@ public class DrawImageRegistry extends AbstractBehavior<DrawImageRegistry.Reques
     }
 
     public static class DrawResponse implements Response {
-        public final String link;
+        public final Data data;
         public final StatusCode status;
 
-        public DrawResponse(String link, StatusCode status) {
-            this.link = link;
+        public DrawResponse(Data data, StatusCode status) {
+            this.data = data;
             this.status = status;
+        }
+
+        public static class Data{
+            public final String link;
+            public final String name;
+
+            public Data(String link, String name) {
+                this.link = link;
+                this.name = name;
+            }
         }
     }
 

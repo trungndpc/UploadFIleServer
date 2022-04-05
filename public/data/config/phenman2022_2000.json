@@ -8,7 +8,7 @@
         {
             "layerId": 1,
             "type": "BACKGROUND",
-            "sourceUrl": "https://admin-nhathau.insee.udev.com.vn/static/upload/certificate_phen_man.png",
+            "sourceUrl": "https://admin-nhathau.insee.udev.com.vn/static/upload/certificate_phen_man_2000.png",
             "width": 1024,
             "height": 768,
             "top": 0,
@@ -39,5 +39,5 @@
             "borderRadius": 225
         }
     ],
-    "styleId": 0
+    "styleId": 2000
 }
