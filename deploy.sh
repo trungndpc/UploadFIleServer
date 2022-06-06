@@ -6,4 +6,3 @@ server=stackops@61.28.229.63
 jar_file=UploadFIleServer-1.0-SNAPSHOT-FINAL.jar
 
 rsync -a $local_dir/target/$jar_file $server:$server_dir/jar/
-rsync -a $local_dir/public $server:$server_dir/

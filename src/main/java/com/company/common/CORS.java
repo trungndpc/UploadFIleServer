@@ -17,6 +17,10 @@ public class CORS {
     private static final String ADMIN_NHA_THAU_INSEE_UDEV_COM_VN = "https://admin-nhathau.insee.udev.com.vn";
     private static final String ADMIN_INSEE_UDEV_COM_VN = "https://admin.insee.udev.com.vn";
     private static final String DEV_ADMIN_NHA_THAU_INSEE_UDEV_COM_VN = "https://dev-admin-nhathau.insee.udev.com.vn";
+    private static final String CONWOOD_CLIENT = "https://conwood.insee.udev.com.vn";
+    private static final String ADMIN_CONWOOD_CLIENT = "https://admin-conwood.insee.udev.com.vn";
+
+
     private static final String LOCALHOST = "http://localhost:3000";
     public static final AccessControlAllowMethods accessControlAllowMethods = AccessControlAllowMethods.create(HttpMethods.GET, HttpMethods.POST);
 
@@ -35,6 +39,14 @@ public class CORS {
 
             if (value.startsWith(DEV_ADMIN_NHA_THAU_INSEE_UDEV_COM_VN)) {
                 cors.add(create(DEV_ADMIN_NHA_THAU_INSEE_UDEV_COM_VN));
+            }
+
+            if (value.startsWith(CONWOOD_CLIENT)) {
+                cors.add(create(CONWOOD_CLIENT));
+            }
+
+            if (value.startsWith(ADMIN_CONWOOD_CLIENT)) {
+                cors.add(create(ADMIN_CONWOOD_CLIENT));
             }
 
             if (value.contains(LOCALHOST)) {
